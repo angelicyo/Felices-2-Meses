@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felices 2 Meses</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffeaea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .scene {
+      perspective: 1000px;
+    }
+
+    .envelope {
+      width: 500px;
+      height: 320px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: flip 2s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+
+    .back, .front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+    }
+
+    .back {
+      background: #c62828;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      font-size: 22px;
+      padding: 20px;
+      z-index: 2;
+      color: white;
+    }
+
+    .front {
+      background: #c62828;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      z-index: 1;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 50%;
+      background: #b71c1c;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      transform-origin: top;
+      transform: rotateX(0deg);
+      animation: openFlap 1s ease-in-out forwards;
+      animation-delay: 3s;
+      z-index: 3;
+    }
+
+    .letter {
+      position: absolute;
+      top: 180px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 95%;
+      height: 260px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      font-family: sans-serif;
+      font-size: 20px;
+      padding: 25px;
+      box-sizing: border-box;
+      opacity: 0;
+      animation: showAndRise 2s ease-out forwards;
+      animation-delay: 4s;
+      z-index: 2;
+      overflow-y: auto;
+    }
+
+    .stamp {
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    }
+
+    .message {
+      margin-top: 85px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    @keyframes flip {
+      to {
+        transform: rotateY(180deg);
+      }
+    }
+
+    @keyframes openFlap {
+      to {
+        transform: rotateX(-140deg);
+      }
+    }
+
+    @keyframes showAndRise {
+      0% {
+        top: 180px;
+        opacity: 0;
+        transform: translate(-50%, 0);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+    .reply-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+        padding: 12px 24px;
+        background-color: #25d366;
+        color: white;
+        font-size: 18px;
+        font-family: sans-serif;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .reply-button:hover {
+        background-color: #1ebe5d;
+    }
+
+    .whatsapp-icon {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="envelope">
+      <div class="back">
+        <div>To: Jonathan 👓❤️</div>
+        <div>From: Angelica 🖥️❤️</div>
+      </div>
+      <div class="front">
+        <div class="flap"></div>
+        <div class="letter">
+          <img class="stamp" src="flores.png" alt="Sello">
+          <div class="message">
+            <p>Felices 2 meses amor❤️🥳, gracias por hacerme muy feliz estando contigo🥺.</p>
+            <p>Disculpame porque sé que no soy fácil😓, pero te quiero muchísimo🥰, y espero que sean muchos más meses a tu lado⏳, haciéndonos tan felices como hasta ahora💫.</p>
+            <p>Espero te guste🥹, y no olvides lo importante que eres para mí. 💖</p>
+            <p>Atte: Angelica 🖥️❤️</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="reply-button" href="https://wa.me/573229489577?text=Hola%20amor%2C%20acabo%20de%20ver%20tu%20carta%20%F0%9F%92%8C" target="_blank">
+    <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path fill="white" d="M16 .001C7.163.001 0 7.163 0 16c0 2.822.734 5.468 2.02 7.777L.002 32l8.418-2.01A15.933 15.933 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837.001 16 .001zM16 29.481c-2.524 0-4.879-.739-6.854-2.002l-.491-.311-4.993 1.193 1.18-4.865-.32-.5A13.49 13.49 0 0 1 2.519 16c0-7.407 6.074-13.481 13.481-13.481 7.406 0 13.48 6.074 13.48 13.481S23.406 29.481 16 29.481zm7.396-9.507c-.406-.203-2.406-1.187-2.778-1.32-.372-.138-.642-.203-.912.204s-1.048 1.32-1.286 1.593c-.237.267-.47.3-.876.102s-1.706-.63-3.25-2.013c-1.2-1.07-2.012-2.389-2.25-2.79-.237-.407-.025-.627.179-.83.184-.182.406-.471.61-.706.204-.238.27-.408.406-.678.136-.267.068-.5-.034-.703-.102-.203-.912-2.204-1.25-3.014-.329-.793-.663-.685-.912-.695-.237-.01-.508-.01-.779-.01s-.72.103-1.098.5c-.375.396-1.467 1.432-1.467 3.499 0 2.068 1.502 4.066 1.71 4.348.203.267 2.96 4.526 7.169 6.149 1.002.432 1.785.687 2.395.878 1.005.32 1.917.275 2.638.167.804-.12 2.406-.985 2.745-1.937.338-.951.338-1.763.237-1.936-.102-.172-.372-.276-.779-.479z"/>
+    </svg>
+    Responder
+  </a>
+</body>
+</html>
